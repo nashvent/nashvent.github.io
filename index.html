@@ -1,6 +1,41 @@
 
- <canvas id="gc" width="400" height="400">
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 40%;
+
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+ <canvas style="float: left;" id="gc" width="400" height="400">
  </canvas>
+
+<table id="tablaPnt"> 
+  <tr>
+    <!--<th>Juego</th>
+    <th>Tiempo</th>-->
+    <th>Puntaje</th>
+  </tr>
+  <tr>
+    <!--<td>15:00</td>
+    <td>2 min</td>-->
+    <td style="background-color: black; color: white;" id="currPnt">0</td>
+    
+  </tr>
+  
+</table>
 
  <script type="text/javascript">
  	window.onload=function (argument){
@@ -16,6 +51,7 @@
  	trail=[];
  	tail=5;
  	function game(){
+ 		updatePnt(tail);
  		px+=xv;
  		py+=yv;
  		if(px<0){
@@ -41,7 +77,13 @@
 			ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
  			if(trail[i].x==px && trail[i].y==py){
  				if(xv!=0 || yv!=0){ //
- 					tail=5;	
+ 					if(tail!=5){
+ 						addHistoryPnt(tail-5);	
+ 					}
+ 					
+ 					tail=5;
+ 					
+
  				}
  				
  			}
@@ -55,6 +97,7 @@
  		//Comida
  		if(ax==px && ay==py){
  			tail++;
+
  			//Generar nueva comida
  			ax=Math.floor(Math.random()*tc); 
  			ay=Math.floor(Math.random()*tc);
@@ -87,6 +130,17 @@
  				break;
  				
  		}
+ 	}
+
+ 	function updatePnt(pnt){
+ 		document.getElementById("currPnt").innerHTML=pnt-5;
+ 	}
+
+ 	function addHistoryPnt(pnt){
+ 		var tableRef = document.getElementById('tablaPnt');
+ 		var row=tableRef.insertRow(2);
+ 		var cell=row.insertCell(0);
+ 		cell.innerHTML=pnt;
  	}
 
  </script>
