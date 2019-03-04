@@ -1,146 +1,211 @@
 
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 40%;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anibal Ignacio Ventura Arocutipa</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-}
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
+    }
 
-}
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    .info{
+      text-align: center;
+    }
+    .b-info{
+      font-size: 5rem;
+    }
+    .b-info:hover{
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+    }
+    .fa-stack-overflow{
+      color: #fad022;
+    }
+    .fa-twitter{
+      color:#7edff6;
+    }
+    .fa-globe{
+      color:#00bc6c;
+    } 
+    .fa-linkedin{
+      color:#0077b5;
+    }
+  </style>
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+      
+      <canvas style="float: left;" id="gc" width="400" height="400"></canvas>  
+    <div class="col-4">
+      <br>
+      <table id="tablaPnt"> 
+        <tr>
+          <!--<th>Juego</th>
+          <th>Tiempo</th>-->
+          <th>Puntaje</th>
+        </tr>
+        <tr>
+          <!--<td>15:00</td>
+          <td>2 min</td>-->
+          <td style="background-color: black; color: white;" id="currPnt">0</td>
+          
+        </tr>
+      
+      </table>
+      
+    </div>
+    <div class="col-4 info" >
+      <br>
+      <h3>Aníbal Ignacio Ventura Arocutipa</h3>
+      <div>
+        <a type="button" class="btn b-info" target="_blank" href="https://github.com/nashvent/"><i class="fab fa-github"></i></a>
+        <a type="button" class="btn b-info" target="_blank" href="https://es.stackoverflow.com/users/112735/nashvent"><i class="fab fa-stack-overflow"></i></a>
+        <a type="button" class="btn b-info" target="_blank" href="https://twitter.com/Nashvent1"><i class="fab fa-twitter"></i></a>
+        <a type="button" class="btn b-info" target="_blank" href="https://multiviralperu.com/"><i class="fas fa-globe"></i></a>
+        <a type="button" class="btn b-info" target="_blank" href="https://www.linkedin.com/in/anibal-ventura/"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
 
- <canvas style="float: left;" id="gc" width="400" height="400">
- </canvas>
+  </div>
+</div>
 
-<table id="tablaPnt"> 
-  <tr>
-    <!--<th>Juego</th>
-    <th>Tiempo</th>-->
-    <th>Puntaje</th>
-  </tr>
-  <tr>
-    <!--<td>15:00</td>
-    <td>2 min</td>-->
-    <td style="background-color: black; color: white;" id="currPnt">0</td>
-    
-  </tr>
   
-</table>
-
  <script type="text/javascript">
- 	window.onload=function (argument){
- 		canv=document.getElementById("gc");
- 		ctx=canv.getContext("2d");
- 		document.addEventListener("keydown",keyPush);
- 		setInterval(game,1000/15);
- 	}
- 	px=py=10;
- 	gs=tc=20;
- 	ax=ay=15;
- 	xv=yv=0;
- 	trail=[];
- 	tail=5;
- 	function game(){
- 		updatePnt(tail);
- 		px+=xv;
- 		py+=yv;
- 		if(px<0){
- 			px=tc-1;
- 		}
- 		if(px>tc-1){
- 			px=0;
- 		}
- 		
- 		if(py<0){
- 			py=tc-1;
- 		}
- 		
- 		if(py>tc-1){
- 			py=0;
- 		}
- 		ctx.fillStyle="black";
- 		ctx.fillRect(0,0,canv.width,canv.height);
+  window.onload=function (argument){
+    canv=document.getElementById("gc");
+    ctx=canv.getContext("2d");
+    document.addEventListener("keydown",keyPush);
+    setInterval(game,1000/15);
+  }
+  px=py=10;
+  gs=tc=20;
+  ax=ay=15;
+  //xv=yv=0;
+  trail=[];
+  tail=5;
+  xv=-1;yv=0;
+  function game(){
+    updatePnt(tail);
+    px+=xv;
+    py+=yv;
+    if(px<0){
+      px=tc-1;
+    }
+    if(px>tc-1){
+      px=0;
+    }
+    
+    if(py<0){
+      py=tc-1;
+    }
+    
+    if(py>tc-1){
+      py=0;
+    }
+    ctx.fillStyle="black";
+    ctx.fillRect(0,0,canv.width,canv.height);
 
- 		ctx.fillStyle="lime";
+    ctx.fillStyle="lime";
 
- 		for(var i=0;i<trail.length;i++){ //Dibujar cuerpo
-			ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
- 			if(trail[i].x==px && trail[i].y==py){
- 				if(xv!=0 || yv!=0){ //
- 					if(tail!=5){
- 						addHistoryPnt(tail-5);	
- 					}
- 					
- 					tail=5;
- 					
+    for(var i=0;i<trail.length;i++){ //Dibujar cuerpo
+      ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
+      if(trail[i].x==px && trail[i].y==py){
+        if(xv!=0 || yv!=0){ //
+          if(tail!=5){
+            addHistoryPnt(tail-5);  
+          }
+          tail=5;
+        }
+        
+      }
+    }
 
- 				}
- 				
- 			}
- 		}
+    trail.push({x:px,y:py});
+    while(trail.length>tail){
+      trail.shift();
+    }
 
- 		trail.push({x:px,y:py});
- 		while(trail.length>tail){
- 			trail.shift();
- 		}
+    //Comida
+    if(ax==px && ay==py){
+      tail++;
 
- 		//Comida
- 		if(ax==px && ay==py){
- 			tail++;
-
- 			//Generar nueva comida
- 			ax=Math.floor(Math.random()*tc); 
- 			ay=Math.floor(Math.random()*tc);
- 		}
+      //Generar nueva comida
+      ax=Math.floor(Math.random()*tc); 
+      ay=Math.floor(Math.random()*tc);
+    }
 
 
- 		ctx.fillStyle="red";
-		ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
+    ctx.fillStyle="red";
+    ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
 
- 	}
- 	function keyPush(evt){
- 		switch (evt.keyCode){
- 			case 37:  //Izquierda
- 				xv=-1;yv=0;
- 				break;
- 			case 38: //Arriba
- 				xv=0;yv=-1;
- 				break;
- 			
- 			case 39: //Derecha
- 				xv=1;yv=0;
- 				break;
- 			
- 			case 40: //Abajo
- 				xv=0;yv=1;
- 				break;
+  }
+  function keyPush(evt){
+    switch (evt.keyCode){
+      case 37:  //Izquierda
+        if(xv!=1)
+          xv=-1;yv=0;          
+        break;
+      case 38: //Arriba
+        if(yv!=1)
+          xv=0;yv=-1;
+        break;
+      
+      case 39: //Derecha
+        if(xv!=-1)
+          xv=1;yv=0;
+        break;
+      
+      case 40: //Abajo
+        if(yv!=-1)
+          xv=0;yv=1;
+        break;
 
- 			case 32: //Barra Espaciadora | Pausa
- 				xv=0;yv=0;
- 				break;
- 				
- 		}
- 	}
+      case 32: //Barra Espaciadora | Pausa
+        xv=0;yv=0;
+        break;
+        
+    }
+  }
 
- 	function updatePnt(pnt){
- 		document.getElementById("currPnt").innerHTML=pnt-5;
- 	}
+  function updatePnt(pnt){
+    document.getElementById("currPnt").innerHTML=pnt-5;
+  }
 
- 	function addHistoryPnt(pnt){
- 		var tableRef = document.getElementById('tablaPnt');
- 		var row=tableRef.insertRow(2);
- 		var cell=row.insertCell(0);
- 		cell.innerHTML=pnt;
- 	}
+  function addHistoryPnt(pnt){
+    var tableRef = document.getElementById('tablaPnt');
+    var row=tableRef.insertRow(2);
+    var cell=row.insertCell(0);
+    cell.innerHTML=pnt;
+  }
 
  </script>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+ 
