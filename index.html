@@ -157,24 +157,29 @@
 
   }
   function keyPush(evt){
+    console.log("Tecla ",yv);
     switch (evt.keyCode){
       case 37:  //Izquierda
-        if(xv!=1)
+        if(xv!=1){
           xv=-1;yv=0;          
-        break;
-      case 38: //Arriba
-        if(yv!=1)
-          xv=0;yv=-1;
+        }
         break;
       
       case 39: //Derecha
-        if(xv!=-1)
+        if(xv!=-1){
           xv=1;yv=0;
+        }
         break;
-      
+
+      case 38: //Arriba
+        if(yv!=1){
+          xv=0;yv=-1;
+        }
+        break;
       case 40: //Abajo
-        if(yv!=-1)
+        if(yv!=-1){
           xv=0;yv=1;
+        }          
         break;
 
       case 32: //Barra Espaciadora | Pausa
