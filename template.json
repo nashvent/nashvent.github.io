@@ -1,0 +1,66 @@
+{
+    "informacion_paciente": {
+        "estatura": "text",
+        "peso": "text",
+        "area_superficie_corporal": "text",
+        "imc": "text"
+    },
+    "antecedentes": {
+        "alergias_a_medicamentos_o_alimentos": "select",
+        "enfermedades_previas": "text",
+        "medicacion_habitual": "text",
+        "antecedentes_familiares": {
+            "hipertension_arterial": "text",
+            "imc": "text",
+            "sincope": "text",
+            "cardiopatia_coronaria": "text",
+            "diabetes_mellitus": "text",
+            "muerte_subita": "text",
+            "problemas_pulmonares_cronicos": "text",
+            "cardiopatias_congenitas": "text",
+            "otros": "text"
+        },
+        "antecedentes_patologicos": "select",
+        "factores_riesgo_cardiovascular": {
+            "tabaquismo": "text",
+            "imc": "text",
+            "sedentarismo": "text",
+            "dislipidemia": "text",
+            "diabetes_mellitus": "text",
+            "edad": "text",
+            "cardiopatias_congenitas": "text",
+            "otros": "text"
+        }
+    },
+    "cita_medica": {
+        "motivo_de_consulta": "text",
+        "diagnostico": "text",
+        "diagnostico_mas_informacion": "text",
+        "tratamiento": "text",
+        "plan_de_trabajo": "text",
+        "observaciones": "text",
+        "examen_fisico_preferencial": {
+            "pa_mmhg": "text",
+            "fc_lpm": "text",
+            "fr_rpm": "text",
+            "iy": "text",
+            "rhy": "text",
+            "hepatomegalia": "text",
+            "edemqas_mmii": "text",
+            "pulso_venoso": "text",
+            "pulsos_arteriales": "text",
+            "impulso_ventricular": "text",
+            "ruidos_cardiacos": "text",
+            "soplos": "text",
+            "pulmones": "text",
+            "otros": "text"
+        },
+        "examenes_auxiliares": {
+            "electrocardiograma": "text",
+            "ecocardiograma": "text",
+            "laboratorio": "text",
+            "rx_torax": "text",
+            "otros": "text"
+        }
+    }
+}
