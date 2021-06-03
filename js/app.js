@@ -55,57 +55,63 @@ let experienceVue = new Vue({
   },
 });
 
-
 let skills = new Vue({
   el: "#fh5co-skills",
   data: {
     skills: [
       {
         title: "Python",
-        percentage: "60"
+        percentage: "60",
       },
       {
         title: "Javascript",
-        percentage: "90"
+        percentage: "90",
       },
       {
         title: "PHP",
-        percentage: "90"
+        percentage: "90",
       },
       {
         title: "Laravel",
-        percentage: "90"
+        percentage: "90",
       },
       {
         title: "Worpdress",
-        percentage: "60"
+        percentage: "60",
       },
       {
         title: "VueJs",
-        percentage: "80"
+        percentage: "80",
       },
       {
         title: "ReactJs",
-        percentage: "70"
+        percentage: "70",
       },
       {
         title: "React Native",
-        percentage: "90"
+        percentage: "90",
       },
-      
+
       {
         title: "NodeJs",
-        percentage: "65"
-      }
-    ]
+        percentage: "65",
+      },
+    ],
   },
   methods: {
-    randomInteger: function(min, max) {
+    randomInteger: function (min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     randomClass: function () {
-      const classes = ["progress-bar-1", "progress-bar-2", "progress-bar-3", "progress-bar-4", "progress-bar-5", "progress-bar-striped" ];
-      return classes[this.randomInteger(0, classes.length-1)];
-    }
-  }
+      const classes = [
+        "progress-bar-1",
+        "progress-bar-2",
+        "progress-bar-3",
+        "progress-bar-4",
+        "progress-bar-5",
+        "progress-bar-striped",
+      ];
+      return classes[this.randomInteger(0, classes.length - 1)];
+    },
+  },
 });
