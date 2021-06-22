@@ -7,10 +7,6 @@ let aboutMe = new Vue({
         data: "Anibal Ignacio Ventura Arocutipa",
       },
       {
-        field: "Telefono",
-        data: "+51 943434338",
-      },
-      {
         field: "Email",
         data: "anibalventura123@gmail.com",
       },
