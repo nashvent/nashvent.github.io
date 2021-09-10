@@ -37,10 +37,16 @@ let experienceVue = new Vue({
         location: "Arequipa, Peru",
       },
       {
-        date: "Ene 2021 a la actualidad",
+        date: "Ene 2021 a la Jun 2021",
         company: "Medlink.la",
         position: "Full Stack Developer",
         location: "Lima, Peru",
+      },
+      {
+        date: "Jun 2021 a la actualidad",
+        company: "Fapro",
+        position: "Backend Developer",
+        location: "Chile",
       },
     ],
   },
