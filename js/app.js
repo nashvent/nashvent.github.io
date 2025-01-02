@@ -2,14 +2,6 @@ let aboutMe = new Vue({
   el: "#fh5co-about",
   data: {
     informationList: [
-      {
-        field: "Nombre completo",
-        data: "Anibal Ignacio Ventura Arocutipa",
-      },
-      {
-        field: "Email",
-        data: "anibalventura123@gmail.com",
-      },
     ],
   },
 });
@@ -21,31 +13,49 @@ let experienceVue = new Vue({
       {
         date: "Feb 2018 a Feb 2019",
         company: "Centinela Software & Infrastructure",
-        position: "Full Stack Developer",
+        position: "Fullstack Developer",
         location: "Arequipa, Peru",
       },
       {
-        date: "Nov 2019 a Ene 2021",
+        date: "Jul 2019 a Nov 2019",
         company: "Shellcatch Inc.",
-        position: "React Native Developer & Full Stack Developer",
+        position: "Python Developer",
+        location: "Arequipa, Peru",
+      },
+      {
+        date: "Nov 2019 a Oct 2020",
+        company: "Shellcatch Inc.",
+        position: "React Native Developer",
+        location: "Arequipa, Peru",
+      },
+      {
+        date: "Oct 2020 a Dic 2020",
+        company: "Shellcatch Inc.",
+        position: "React Native Developer",
         location: "Arequipa, Peru",
       },
       {
         date: "Dic 2020 a May 2021",
         company: "Beetle Craft",
-        position: "React Native Developer",
+        position: "Fullstack Developer",
         location: "Arequipa, Peru",
       },
       {
-        date: "Ene 2021 a la Jun 2021",
+        date: "Ene 2021 a Jun 2021",
         company: "Medlink.la",
-        position: "Full Stack Developer",
+        position: "Fullstack Developer",
         location: "Lima, Peru",
       },
       {
-        date: "Jun 2021 a la actualidad",
+        date: "Jul 2021 a Oct 2022",
         company: "Fapro",
         position: "Backend Developer",
+        location: "Chile",
+      },
+      {
+        date: "Oct 2022 la actualidad",
+        company: "Fapro",
+        position: "Fullstack Developer",
         location: "Chile",
       },
     ],
@@ -63,42 +73,42 @@ let skills = new Vue({
     skills: [
       {
         title: "Python",
-        percentage: "60",
+        percentage: 91,
       },
       {
         title: "Javascript",
-        percentage: "90",
+        percentage: 95,
       },
       {
         title: "PHP",
-        percentage: "90",
+        percentage: 90,
       },
       {
         title: "Laravel",
-        percentage: "90",
+        percentage: 95,
       },
       {
         title: "Worpdress",
-        percentage: "60",
+        percentage: 60,
       },
       {
         title: "VueJs",
-        percentage: "80",
+        percentage: 80,
       },
       {
         title: "ReactJs",
-        percentage: "70",
+        percentage: 80,
       },
       {
         title: "React Native",
-        percentage: "90",
+        percentage: 90,
       },
 
       {
         title: "NodeJs",
-        percentage: "65",
+        percentage: 100,
       },
-    ],
+    ].sort((a, b) => b.percentage - a.percentage),
   },
   methods: {
     randomInteger: function (min, max) {
